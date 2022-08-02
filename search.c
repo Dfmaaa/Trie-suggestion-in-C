@@ -178,6 +178,10 @@ int main(int argc, char **argv){
     }
     char *keyword=argv[argc-1];
     struct node *keytree=nds[index_of_char(keyword[0])];
+    if(keytree==NULL){
+        printf("\nTrie for '%c' doesn't exist as no words start with that character in input array.\n",keyword[0]);
+        exit(EXIT_FAILURE);
+    }
     int h=height(keytree);
     if(strlen(keyword)>h){
         printf("\nSearch key longer than every word in the trie for character '%c'.\n",keyword[0]);
